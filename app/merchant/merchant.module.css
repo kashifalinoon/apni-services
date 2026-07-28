@@ -1,0 +1,320 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.merchantInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.merchantAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--brand-accent-2);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.merchantName {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.statusBadge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+}
+
+.open {
+    background: rgba(0, 200, 81, 0.15);
+    color: var(--color-success);
+}
+
+.closed {
+    background: rgba(255, 65, 54, 0.15);
+    color: var(--color-danger);
+}
+
+.sideStats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.sideStat {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+}
+
+.sideStatVal {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.sideStatLabel {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+}
+
+.navItem:hover {
+    background: var(--bg-glass);
+    color: var(--text-primary);
+}
+
+.navActive {
+    background: rgba(0, 200, 81, 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.logoutBtn {
+    padding: 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all var(--transition-fast);
+}
+
+.logoutBtn:hover {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.pageContent {
+    padding: 28px;
+    min-height: 100%;
+}
+
+.pageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.pageHeader h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.pageTitle {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+/* KANBAN */
+.kanban {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.kanbanCol {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    min-height: 400px;
+}
+
+.kanbanHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+.colCount {
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* ORDER CARD */
+.orderCard {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    margin-bottom: 10px;
+    transition: all var(--transition-fast);
+}
+
+.orderCard:hover {
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+}
+
+.orderTop {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.orderId {
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--brand-primary);
+}
+
+.orderTime {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.orderCustomer {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.orderAddr {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.orderItems span {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.orderBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 8px;
+}
+
+.orderTotal {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.orderBtns {
+    display: flex;
+    gap: 4px;
+}
+
+.emptyCol {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    padding: 24px 0;
+}
+
+.menuTable {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.analyticsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 1100px) {
+    .kanban {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .kanban {
+        grid-template-columns: 1fr;
+    }
+}

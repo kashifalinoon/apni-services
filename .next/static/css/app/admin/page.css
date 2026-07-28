@@ -1,0 +1,311 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./app/admin/admin.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.admin_layout__emNnk {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.admin_sidebar__5knmB {
+    width: 240px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.admin_brand__XFcHb {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin_adminInfo__ErCv5 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.admin_adminAvatar__Hm5Va {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin_adminName__ozo4V {
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+}
+
+.admin_nav__5G8fA {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+}
+
+.admin_navItem__1Mirg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    text-align: left;
+}
+
+.admin_navItem__1Mirg:hover {
+    background: var(--bg-glass);
+    color: var(--text-primary);
+}
+
+.admin_navActive__dXkl7 {
+    background: rgba(0, 200, 81, 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.admin_logoutBtn__QWuBW {
+    padding: 9px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all var(--transition-fast);
+}
+
+.admin_logoutBtn__QWuBW:hover {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.admin_main__zshRw {
+    flex: 1 1;
+    overflow-y: auto;
+}
+
+.admin_pageContent__YN9FA {
+    padding: 28px;
+}
+
+.admin_pageHeader__Ajpif {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.admin_pageHeader__Ajpif h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.admin_pageTitle__rBv1d {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.admin_liveIndicator__5kptz {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--brand-primary);
+    font-weight: 600;
+}
+
+.admin_headerActions__tIUeq {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* KPI GRID */
+.admin_kpiGrid__OSFky {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 14px;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.admin_kpiCard__1D3az {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    transition: all var(--transition-base);
+}
+
+.admin_kpiCard__1D3az:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-md);
+}
+
+.admin_kpiIcon__67pkX {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.admin_kpiValue__87sNF {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.admin_kpiLabel__4JI6J {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.admin_kpiSub__0WO5b {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.admin_tableCard__ONlTd {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.admin_tableHeader__WBJEg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.admin_tableHeader__WBJEg h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* FLEET MAP */
+.admin_fleetLayout__XvIGa {
+    display: flex;
+    height: 100%;
+}
+
+.admin_fleetSidebar__xOSBu {
+    width: 260px;
+    padding: 20px;
+    border-right: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.admin_fleetSidebar__xOSBu h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.admin_fleetLegend__wjzH8 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.admin_fleetLegendItem__2NwV9 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.admin_fleetStats__nd9ah {
+    display: flex;
+    gap: 10px;
+}
+
+.admin_fStat__XhxC5 {
+    flex: 1 1;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    text-align: center;
+}
+
+.admin_fStat__XhxC5 div:first-child {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.admin_fStat__XhxC5 div:last-child {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.admin_fleetMap__QVJ29 {
+    flex: 1 1;
+}
+
+.admin_financeGrid__WHo9C {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .admin_kpiGrid__OSFky {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin_sidebar__5knmB {
+        display: none;
+    }
+
+    .admin_kpiGrid__OSFky {
+        grid-template-columns: 1fr 1fr;
+    }
+}

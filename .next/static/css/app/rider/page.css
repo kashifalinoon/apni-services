@@ -1,0 +1,528 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./app/rider/rider.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.rider_layout__Ad_sK {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.rider_sidebar__AlSAF {
+    width: 280px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.rider_sidebarTop__B9R49 {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.rider_brand__xGS3E {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    color: var(--brand-primary);
+}
+
+.rider_brandText__vXL2H {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rider_userCard__SzaHG {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.rider_userAvatar__HRjTl {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    color: #000;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rider_userName__J1NZA {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.rider_userPhone__w9ivP {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.rider_walletBadge__tT3Zj {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(0, 200, 81, 0.08);
+    border: 1px solid rgba(0, 200, 81, 0.2);
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+/* NAV */
+.rider_nav__TGvtz {
+    flex: 1 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rider_navItem__OZDFV {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    width: 100%;
+}
+
+.rider_navItem__OZDFV:hover {
+    background: var(--bg-glass);
+    color: var(--text-primary);
+}
+
+.rider_navItemActive__EGaXc {
+    background: rgba(0, 200, 81, 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.rider_logoutBtn__wWY2D {
+    margin: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all var(--transition-fast);
+}
+
+.rider_logoutBtn__wWY2D:hover {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+/* MAP */
+.rider_main__W7dei {
+    flex: 1 1;
+    position: relative;
+}
+
+.rider_map__uoFv2 {
+    width: 100%;
+    height: 100%;
+}
+
+/* BOOKING PANEL */
+.rider_bookingPanel__E2WRb {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-default);
+    border-radius: 20px 20px 0 0;
+    padding: 20px 20px 28px;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    max-height: 65vh;
+    overflow-y: auto;
+    animation: rider_slideUp__sA6gx 0.3s ease;
+}
+
+.rider_panelTitle__zL8ct {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.rider_backBtn__p1UNX {
+    background: none;
+    border: none;
+    color: var(--brand-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.rider_comingSoon__9t0uD {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 24px 0;
+}
+
+/* LOCATION INPUTS */
+.rider_locationInputs__J8qTO {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.rider_locationRow__h0_H1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rider_locationRow__h0_H1 .rider_input__Tv0AQ {
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.rider_locationRow__h0_H1 .rider_input__Tv0AQ:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.rider_locationDivider__onBIE {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 4px 0 4px 28px;
+}
+
+.rider_dot__A_P8T {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.rider_mapHint__yfbo7 {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* VEHICLE GRID */
+.rider_vehiclesGrid__pGpTl {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 8px;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.rider_vehicleBtn__LSuTb {
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 10px 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.rider_vehicleBtn__LSuTb:hover {
+    border-color: var(--border-default);
+}
+
+.rider_vehicleBtnSelected__v_XH8 {
+    border-color: var(--brand-primary) !important;
+    background: rgba(0, 200, 81, 0.08) !important;
+}
+
+.rider_vehicleEmoji__cfauE {
+    font-size: 1.5rem;
+}
+
+.rider_vehicleName__WyBq3 {
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.rider_vehicleFare__r639q {
+    font-size: 0.72rem;
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.rider_vehicleEta__maSr2 {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+/* CONFIRM */
+.rider_confirmDetails__wlHXh {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.rider_confirmRow__cCNVP {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.88rem;
+}
+
+.rider_confirmRow__cCNVP:last-child {
+    border-bottom: none;
+}
+
+.rider_confirmRow__cCNVP span:first-child {
+    color: var(--text-secondary);
+}
+
+.rider_confirmRow__cCNVP span:last-child {
+    font-weight: 600;
+    max-width: 60%;
+    text-align: right;
+}
+
+.rider_fareRow__LiPuj span:last-child {
+    color: var(--brand-primary);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rider_paymentOptions__GQwJm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.rider_paymentOption__lQc8A {
+    flex: 1 1;
+    padding: 10px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.rider_paymentOption__lQc8A:hover {
+    border-color: var(--brand-primary);
+}
+
+/* TRACKING */
+.rider_trackingPanel__rhn4_ {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-default);
+    border-radius: 20px 20px 0 0;
+    padding: 20px 20px 28px;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    animation: rider_slideUp__sA6gx 0.3s ease;
+}
+
+.rider_trackingStatus__bdY_h {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brand-primary);
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.rider_driverCard__XDDz8 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.rider_driverAvatar__LC185 {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rider_driverInfo__c8nnb {
+    flex: 1 1;
+}
+
+.rider_driverName__aV7nK {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.rider_driverRating__WP6cV {
+    color: var(--brand-accent);
+    font-size: 0.85rem;
+}
+
+.rider_driverVehicle___sXc3 {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.rider_driverActions__qJ0qA {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rider_etaBar__Ps53S {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rider_etaStep__pQMaU {
+    flex: 1 1;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    padding: 6px 4px;
+}
+
+.rider_etaStep__pQMaU[data-active="true"] {
+    background: rgba(0, 200, 81, 0.15);
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+/* HISTORY */
+.rider_historyPanel__f4EU4 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 100%;
+    background: var(--bg-surface);
+    border-left: 1px solid var(--border-subtle);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.rider_historyItem__eQb4k {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 12px;
+}
+
+.rider_historyAddr__5eo_L {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.rider_historyMeta__bmHUt {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.rider_historyFare__Mde1v {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-top: 4px;
+    text-align: right;
+}
+
+.rider_empty__4_J_T {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+/* TOAST */
+.rider_toast__op4wv {
+    position: absolute;
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    animation: rider_slideUp__sA6gx 0.3s ease;
+    white-space: nowrap;
+    border: 1px solid var(--border-default);
+}
+
+.rider_toast_success__se0bu {
+    border-left: 3px solid var(--color-success);
+}
+
+.rider_toast_error__kBn8J {
+    border-left: 3px solid var(--color-danger);
+}
+
+.rider_toast_info____f4X {
+    border-left: 3px solid var(--color-info);
+}
+
+@media (max-width: 768px) {
+    .rider_sidebar__AlSAF {
+        display: none;
+    }
+
+    .rider_vehiclesGrid__pGpTl {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

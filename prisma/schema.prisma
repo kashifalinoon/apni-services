@@ -1,0 +1,347 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String?   @unique
+  phone         String    @unique
+  passwordHash  String
+  role          String    @default("rider") // rider, driver, merchant, admin, support
+  avatar        String?
+  cnic          String?
+  dateOfBirth   String?
+  address       String?
+  city          String?
+  gender        String?
+  isVerified    Boolean   @default(false)
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  riderProfile  RiderProfile?
+  driverProfile DriverProfile?
+  merchantProfile MerchantProfile?
+  ridesAsRider  Ride[]    @relation("RiderRides")
+  ridesAsDriver Ride[]    @relation("DriverRides")
+  deliveriesAsCustomer Delivery[] @relation("CustomerDeliveries")
+  deliveriesAsDriver   Delivery[] @relation("DriverDeliveries")
+  wallet        Wallet?
+  ratingsGiven  Rating[]  @relation("RaterRatings")
+  ratingsReceived Rating[] @relation("RateeRatings")
+  notifications Notification[]
+  otps          OTP[]
+
+  @@map("users")
+}
+
+model OTP {
+  id        String   @id @default(uuid())
+  userId    String
+  phone     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("otps")
+}
+
+model RiderProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  savedAddresses  String   @default("[]") // JSON array
+  preferredPayment String?
+  createdAt       DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("rider_profiles")
+}
+
+model DriverProfile {
+  id                  String   @id @default(uuid())
+  userId              String   @unique
+  isOnline            Boolean  @default(false)
+  currentLat          Float?
+  currentLng          Float?
+  vehicleType         String   @default("car") // bike, car, car_xl, van, rickshaw
+  vehicleMake         String?
+  vehicleModel        String?
+  vehiclePlate        String?
+  vehicleYear         Int?
+  licenseNumber       String?
+  licenseExpiry       String?
+  cnicNumber          String?
+  approvalStatus      String   @default("pending") // pending, approved, suspended
+  rating              Float    @default(5.0)
+  totalRides          Int      @default(0)
+  totalEarnings       Float    @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("driver_profiles")
+}
+
+model MerchantProfile {
+  id            String   @id @default(uuid())
+  userId        String   @unique
+  businessName  String
+  businessType  String   @default("restaurant") // restaurant, grocery, pharmacy, etc.
+  address       String?
+  lat           Float?
+  lng           Float?
+  logo          String?
+  coverImage    String?
+  isOpen        Boolean  @default(true)
+  rating        Float    @default(5.0)
+  totalOrders   Int      @default(0)
+  commission    Float    @default(15.0) // percentage
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  menuCategories MenuCategory[]
+  menuItems     MenuItem[]
+  orders        Order[]
+
+  @@map("merchant_profiles")
+}
+
+model MenuCategory {
+  id         String   @id @default(uuid())
+  merchantId String
+  name       String
+  sortOrder  Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  merchant  MerchantProfile @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  items     MenuItem[]
+
+  @@map("menu_categories")
+}
+
+model MenuItem {
+  id          String   @id @default(uuid())
+  merchantId  String
+  categoryId  String?
+  name        String
+  description String?
+  price       Float
+  image       String?
+  isAvailable Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  merchant  MerchantProfile @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  category  MenuCategory?   @relation(fields: [categoryId], references: [id])
+  orderItems OrderItem[]
+
+  @@map("menu_items")
+}
+
+model Ride {
+  id              String   @id @default(uuid())
+  riderId         String
+  driverId        String?
+  vehicleType     String   @default("car")
+  pickupLat       Float
+  pickupLng       Float
+  pickupAddress   String
+  dropoffLat      Float
+  dropoffLng      Float
+  dropoffAddress  String
+  waypoints       String   @default("[]") // JSON
+  status          String   @default("requested") // requested, matched, driver_enroute, driver_arrived, started, completed, cancelled
+  fareEstimate    Float?
+  fareFinal       Float?
+  distanceKm      Float?
+  durationMin     Int?
+  paymentMethod   String   @default("cash")
+  paymentStatus   String   @default("pending")
+  surgeMultiplier Float    @default(1.0)
+  isSurge         Boolean  @default(false)
+  notes           String?
+  cancelReason    String?
+  scheduledAt     DateTime?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  rider  User @relation("RiderRides", fields: [riderId], references: [id])
+  driver User? @relation("DriverRides", fields: [driverId], references: [id])
+  payment Payment?
+  rating  Rating?
+
+  @@map("rides")
+}
+
+model Delivery {
+  id            String   @id @default(uuid())
+  customerId    String
+  driverId      String?
+  orderId       String?  @unique
+  pickupLat     Float?
+  pickupLng     Float?
+  pickupAddress String?
+  dropoffLat    Float
+  dropoffLng    Float
+  dropoffAddress String
+  status        String   @default("pending") // pending, assigned, pickup_enroute, picked_up, delivered, cancelled
+  deliveryFee   Float    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  customer User  @relation("CustomerDeliveries", fields: [customerId], references: [id])
+  driver   User? @relation("DriverDeliveries", fields: [driverId], references: [id])
+  order    Order? @relation(fields: [orderId], references: [id])
+
+  @@map("deliveries")
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  customerId    String
+  merchantId    String
+  status        String   @default("pending") // pending, accepted, preparing, ready, picked_up, delivered, cancelled
+  subtotal      Float
+  deliveryFee   Float    @default(0)
+  discount      Float    @default(0)
+  total         Float
+  paymentMethod String   @default("cash")
+  paymentStatus String   @default("pending")
+  deliveryAddress String
+  deliveryLat   Float
+  deliveryLng   Float
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  merchant  MerchantProfile @relation(fields: [merchantId], references: [id])
+  items     OrderItem[]
+  delivery  Delivery?
+  payment   Payment?
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id         String  @id @default(uuid())
+  orderId    String
+  menuItemId String
+  quantity   Int     @default(1)
+  unitPrice  Float
+  totalPrice Float
+  notes      String?
+
+  order    Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+
+  @@map("order_items")
+}
+
+model Wallet {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  balance      Float    @default(0)
+  currency     String   @default("PKR")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions WalletTransaction[]
+
+  @@map("wallets")
+}
+
+model WalletTransaction {
+  id          String   @id @default(uuid())
+  walletId    String
+  amount      Float
+  type        String   // credit, debit
+  description String?
+  refId       String?
+  createdAt   DateTime @default(now())
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@map("wallet_transactions")
+}
+
+model Payment {
+  id            String   @id @default(uuid())
+  rideId        String?  @unique
+  orderId       String?  @unique
+  userId        String
+  amount        Float
+  currency      String   @default("PKR")
+  method        String   // cash, wallet, card, stripe
+  status        String   @default("pending") // pending, completed, failed, refunded
+  stripeId      String?
+  createdAt     DateTime @default(now())
+
+  ride  Ride?  @relation(fields: [rideId], references: [id])
+  order Order? @relation(fields: [orderId], references: [id])
+
+  @@map("payments")
+}
+
+model Rating {
+  id        String   @id @default(uuid())
+  raterId   String
+  rateeId   String
+  rideId    String?  @unique
+  score     Int      // 1-5
+  comment   String?
+  createdAt DateTime @default(now())
+
+  rater User  @relation("RaterRatings", fields: [raterId], references: [id])
+  ratee User  @relation("RateeRatings", fields: [rateeId], references: [id])
+  ride  Ride? @relation(fields: [rideId], references: [id])
+
+  @@map("ratings")
+}
+
+model Zone {
+  id             String   @id @default(uuid())
+  name           String
+  city           String
+  coordinates    String   // JSON polygon
+  baseMultiplier Float    @default(1.0)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  @@map("zones")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  body      String
+  type      String   @default("general") // ride, delivery, payment, system
+  isRead    Boolean  @default(false)
+  data      String?  // JSON extra data
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
